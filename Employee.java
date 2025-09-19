@@ -11,6 +11,7 @@ public class Employee{
     private double hourlyWage;
     private double unpaidHours;
     
+    
 
     public Employee(String fullname, int yearOfBirth, double hourlyWage){
         this.fullname = fullname;
@@ -18,6 +19,7 @@ public class Employee{
         this.hourlyWage = hourlyWage;
         onLeave = false;
         unpaidHours = 0.0;
+        
     }
     // Question 11 (the setter method)
     private String setFullname(String fullname)
@@ -37,22 +39,25 @@ public class Employee{
     private int calculateAge(int currentYear){
         return (currentYear - yearOfBirth);
     }
-
+    
     /**
      * Returns true is an employee is above 16 years old
      */
     //Question 12 
     public boolean canDrive(){
         int age = calculateAge(2025);
+        
         if(age >= 16)
         {
+            return true; //I added this
             System.out.println("You can drive");
         }
         else{
-            System.out.println("You have to wait " + 16 - (currentYear - yearOfBirth) + " to drive");
+            return false;// I added this and fixed the code to (16- age)
+            System.out.println("You have to wait " + (16 - age) + " to drive");
         }
-        return age;
-        }
+        
+    }
         // to be completed
     
 
@@ -69,7 +74,7 @@ public class Employee{
     /*
      * Output the payment record and resets unpaid hours
      */
-    //Question 13
+    //Question 14
     public void paySalary(){
         System.out.println("John Deere has received a wire transfer of " + calculatePay + " CAD");
         unpaidHours = 0.0;// to be completed
