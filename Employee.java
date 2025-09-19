@@ -22,12 +22,13 @@ public class Employee{
         
     }
     // Question 11 (the setter method)
-    private String setFullname(String fullname)
+    public void setFullname(String fullname)
     {
         this.fullname = fullname;
+        
     }
     //Question 11 (the getter method)
-    private String getFullname()
+    public String getFullname()
     {
      return fullname;
     }
@@ -49,12 +50,14 @@ public class Employee{
         
         if(age >= 16)
         {
-            return true; //I added this
+            
             System.out.println("You can drive");
+            return true; //I added this
         }
         else{
-            return false;// I added this and fixed the code to (16- age)
+            
             System.out.println("You have to wait " + (16 - age) + " to drive");
+            return false;// I added this and fixed the code to (16- age)
         }
         
     }
@@ -75,8 +78,8 @@ public class Employee{
      * Output the payment record and resets unpaid hours
      */
     //Question 14
-    public void paySalary(){
-        System.out.println("John Deere has received a wire transfer of " + calculatePay + " CAD");
+    public void paySalary(){ // I added fullname instead of John Deere so that it changes if the name changes or else it would always be John Deere
+        System.out.println(fullname + " has received a wire transfer of " + calculatePay  + " CAD");
         unpaidHours = 0.0;// to be completed
     }
 }
