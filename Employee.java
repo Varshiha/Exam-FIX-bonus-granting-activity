@@ -10,17 +10,24 @@ public class Employee{
     private boolean onLeave;
     private double hourlyWage;
     private double unpaidHours;
+    private double calculatePay;
     
     
 
-    public Employee(String fullname, int yearOfBirth, double hourlyWage){
+    public Employee(String fullname, int yearOfBirth, double hourlyWage, double unpaidHours){
         this.fullname = fullname;
         this.yearOfBirth = yearOfBirth;
         this.hourlyWage = hourlyWage;
         onLeave = false;
-        unpaidHours = 0.0;
+        this.unpaidHours = unpaidHours;
+        
         
     }
+    public double getUnpaidHours()
+    {
+     return unpaidHours;
+    }
+    
     // Question 11 (the setter method)
     public void setFullname(String fullname)
     {
@@ -68,7 +75,7 @@ public class Employee{
      * Returns the net pay for the outstanding unpaid hours
      */
     // Question 13
-    private double calculatePay(double unpaidHours, double hourlyWage){
+    private double calculatePay(){
         return(hourlyWage * unpaidHours - (hourlyWage * unpaidHours * 30/100));
         
         // to be completed
@@ -77,8 +84,9 @@ public class Employee{
     /*
      * Output the payment record and resets unpaid hours
      */
-    //Question 14
-    public void paySalary(){ // I added fullname instead of John Deere so that it changes if the name changes or else it would always be John Deere
+    //Question 14,  I added double calculatePay 
+    public void paySalary(){
+        double calculatePay = calculatePay();
         System.out.println(fullname + " has received a wire transfer of " + calculatePay  + " CAD");
         unpaidHours = 0.0;// to be completed
     }
